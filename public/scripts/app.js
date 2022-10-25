@@ -67,7 +67,12 @@ setInterval(() => {
                     newY+=height
                 }
             }
-
+            
+            const cloneSquare = document.getElementById('square').cloneNode(true)
+            cloneSquare.className = 'square-clone-' + clonedSquares
+            clonedSquares += 1
+            document.body.append(cloneSquare)
+            
             document.getElementById('square').style.left = newX.toString() + 'px';
             document.getElementById('square').style.top  = newY.toString() + 'px';
 
@@ -93,6 +98,10 @@ function changeToRed() {
 
 function changeToGreen(callback){
     document.getElementById('square').style.backgroundColor = 'green'
+    const cloneSquare = document.getElementById('square').cloneNode(true)
+    cloneSquare.className = 'square-clone-' + clonedSquares
+    clonedSquares += 1
+    document.body.append(cloneSquare)
     callback()
 }
 
